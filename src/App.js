@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import RestaurantsList from './RestaurantList'
 import BarsList from './BarList'
+import PlacesList from  './PlaceList'
 
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
                 </div>
                 <RestaurantsList/>
                 <BarsList/>
+                <PlacesList/>
             </div>
         );
     }
