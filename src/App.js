@@ -4,6 +4,7 @@ import './App.css';
 import RestaurantsList from './RestaurantList'
 import BarsList from './BarList'
 import PlacesList from  './PlaceList'
+import AddLocations from './AddForm'
 
 
 class App extends Component {
@@ -14,7 +15,9 @@ class App extends Component {
         this.state = {
 
         }
+    
     }
+
 
     render() {
         return (
@@ -31,6 +34,7 @@ class App extends Component {
                         </div>
                     </div>
                 </div>
+                <AddLocations />
                 <RestaurantsList/>
                 <BarsList/>
                 <PlacesList/>
