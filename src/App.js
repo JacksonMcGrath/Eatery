@@ -18,12 +18,20 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Welcome to React</h1>
-                </header>
-                <RestaurantsList />
-                <BarsList />
+                <div>
+                    <div className="hero">
+                        <h1 className="prompt">What are you looking for?</h1>
+                        <div className="prompt-container">
+                            <div className="option-pannel">
+                                <button className="options">Bar</button>
+                                <button className="options">Restaurant</button>
+                                <button className="options">Both</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <RestaurantsList/>
+                <BarsList/>
             </div>
         );
     }
