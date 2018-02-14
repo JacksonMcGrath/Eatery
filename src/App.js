@@ -50,14 +50,14 @@ class App extends Component {
         return (
             <div className="App">
                 <div className="hero">
-                    <h1 className="prompt">What are you looking for?</h1>
                     <div className="prompt-container">
+                        <h1 className="prompt">What are you looking for?</h1>
+                    </div>
                         <div className="option-pannel">
                             <button onClick={this.toggleBar} className="options">Bar</button>
-                            <button onClick={this.toggleBoth} className="options">Both</button>
                             <button onClick={this.toggleRestaurant} className="options">Restaurant</button>
                         </div>
-                    </div>
+                        <button onClick={this.toggleBoth} className="optionBoth">Both</button>
                 </div>
                 {this.state.restaurant && <RestaurantsList/>}
                 {this.state.bar && <BarsList/>}

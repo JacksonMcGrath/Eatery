@@ -24,6 +24,10 @@
   font-size: large;
 }
 
+h1 {
+  /*margin-top: 40px;*/
+}
+
 .hero {
   margin-top: 160px;
   width: 100%;
@@ -33,28 +37,41 @@
 }
 
 .prompt-container {
-  margin-top: 100px;
+  margin: 130px;
 }
 
 .prompt {
   color: white;
-  margin-bottom: 100px;
+  margin: 0px;
 }
 
 .option-pannel {
-  display: flex;
+  display: inline-flex;
   margin: 0 auto;
   width: 600px;
   justify-content: space-between;
+  text-align: center;
 }
 
 .options {
-  display: inline-flex;
   width: 100px;
-  height: 30px;
+  height: 40px;
   border: none;
+  border-radius: 0px;
   background-color: lightblue;
   text-align: center;
+}
+
+.optionBoth {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 30px;
+  background-color: lightblue;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 100px;
 }
 
 @keyframes App-logo-spin {
