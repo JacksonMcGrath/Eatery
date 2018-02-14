@@ -14,13 +14,17 @@ class Bars extends Component {
     // };
 
     render() {
-        // console.log("Bars list is ready");
-        
-
 
         return (
-            <div>
-                <h2>Bars list is rendering.</h2>
+            <div className="hero">
+                <div className="prompt-container">
+                    <h1 className="prompt">Do you wan't a Bar that serves food?</h1>
+                </div>
+                    <div className="option-pannel">
+                        <button onClick={this.toggleBar} className="options">Yes</button>
+                        <button onClick={this.toggleRestaurant} className="options">No</button>
+                    </div>
+                    <button onClick={this.toggleplaces} className="optionBoth">either</button>
             </div>
         );
     }

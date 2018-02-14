@@ -30,6 +30,7 @@ class App extends Component {
 
     toggleBar = () => {
         console.log("toggleBar was run");
+        document.querySelector(".hero").style.display = "none";
         const bar = this.bar;
         this.setState({
             bar: !bar
@@ -38,6 +39,7 @@ class App extends Component {
 
     toggleRestaurant = () => {
         console.log("toggleRestaurant was run");
+        document.querySelector(".hero").style.display = "none";
         const restaurant = this.restaurant;
         this.setState({
             restaurant: !restaurant
@@ -46,6 +48,7 @@ class App extends Component {
 
     toggleBoth = () => {
         console.log("toggleplaces was run");
+        document.querySelector(".hero").style.display = "none";
         const both = this.both;
         this.setState({
             both: !both
@@ -54,6 +57,7 @@ class App extends Component {
 
     toggleAdd = () => {
         console.log("toggleplaces was run");
+        document.querySelector(".hero").style.display = "none";
         const add = this.add;
         this.setState({
             add: !add
@@ -72,7 +76,7 @@ class App extends Component {
                             <button onClick={this.toggleBar} className="options">Bar</button>
                             <button onClick={this.toggleRestaurant} className="options">Restaurant</button>
                         </div>
-                        <button onClick={this.toggleplaces} className="optionBoth">places</button>
+                        <button onClick={this.toggleplaces} className="optionBoth">both</button>
                 </div>
                 {this.state.restaurant && <RestaurantsList/>}
                 {this.state.bar && <BarsList/>}
