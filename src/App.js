@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios'
 import logo from './logo.svg';
 import './App.css';
 import RestaurantsList from './RestaurantList'
@@ -18,6 +20,16 @@ class App extends Component {
     
     }
 
+    componentDidMount() {
+        axios.get('http://172.20.0.123:9292/restaurants')
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+    
 
     render() {
         return (
@@ -36,7 +48,9 @@ class App extends Component {
                 </div>
                 <AddLocations />
                 <RestaurantsList/>
+                
                 <BarsList/>
+                {/* This form will allow you to add places */}
                 <PlacesList/>
             </div>
         );
