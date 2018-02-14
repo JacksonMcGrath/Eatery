@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+// eslint-disable-next-line
 import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios'
+// eslint-disable-next-line
 import logo from './logo.svg';
 import './App.css';
 import RestaurantsList from './RestaurantList'
@@ -15,7 +17,8 @@ class App extends Component {
         super()
 
         this.state = {
-
+            restaurants: [],
+            bars: []
         }
     
     }
@@ -23,7 +26,13 @@ class App extends Component {
     componentDidMount() {
         axios.get('http://172.20.0.123:9292/restaurants')
             .then((res) => {
-                console.log(res);
+                // console.log(this.state.);
+                const state = res.data
+                this.setState({restaurants: state});
+                console.log(this.state)
+
+
+                
             })
             .catch((err) => {
                 console.log(err)
