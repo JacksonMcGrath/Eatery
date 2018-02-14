@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 // eslint-disable-next-line
+// This is how all the HTTP commands are issued
 import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios'
 // eslint-disable-next-line
 import logo from './logo.svg';
@@ -23,20 +24,25 @@ class App extends Component {
     
     }
 
+    // making the API calls
     componentDidMount() {
-        axios.get('http://172.20.0.123:9292/restaurants')
+        axios.all([
+            axios.get('http://172.20.0.123:9292/restaurants'),
+            axios.get('http://172.20.0.123:9292/bars')
+          ])
+        
+          //setting the state
             .then((res) => {
-                // console.log(this.state.);
-                const state = res.data
-                this.setState({restaurants: state});
-                console.log(this.state)
-
-
-                
+                const state = res
+                // console.log(state[1].data);
+                this.setState({restaurants: state[0].data});
+                this.setState({bars: state[1].data});
+                console.log(this.state)     
             })
             .catch((err) => {
                 console.log(err)
             })
+            
     }
     
 
