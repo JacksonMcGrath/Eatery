@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import RestaurantsList from './RestaurantList'
 import BarsList from './BarList'
+import PlacesList from  './PlaceList'
+import AddLocations from './AddForm'
 
 
 class App extends Component {
@@ -46,6 +48,8 @@ class App extends Component {
             both: !both
         })
     }
+
+
     render() {
         return (
             <div className="App">
@@ -61,6 +65,8 @@ class App extends Component {
                 </div>
                 {this.state.restaurant && <RestaurantsList/>}
                 {this.state.bar && <BarsList/>}
+                <AddLocations/>
+                <PlacesList/>
             </div>
         );
     }
