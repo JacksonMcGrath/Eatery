@@ -11,27 +11,56 @@ class App extends Component {
         super()
 
         this.state = {
-
+            restaurant: false,
+            bar: false,
+            both: false,
         }
+
+        this.toggleBar = this.toggleBar.bind(this)
+
+        this.toggleRestaurant = this.toggleRestaurant.bind(this)
+
+        this.toggleBoth = this.toggleBoth.bind(this)
     }
 
+    toggleBar = () => {
+        console.log("toggleBar was run");
+        const bar = this.bar;
+        this.setState({
+            bar: !bar
+        })
+    }
+
+    toggleRestaurant = () => {
+        console.log("toggleRestaurant was run");
+        const restaurant = this.restaurant;
+        this.setState({
+            restaurant: !restaurant
+        })
+    }
+
+    toggleBoth = () => {
+        console.log("toggleBoth was run");
+        const both = this.both;
+        this.setState({
+            both: !both
+        })
+    }
     render() {
         return (
             <div className="App">
-                <div>
-                    <div className="hero">
-                        <h1 className="prompt">What are you looking for?</h1>
-                        <div className="prompt-container">
-                            <div className="option-pannel">
-                                <button className="options">Bar</button>
-                                <button className="options">Restaurant</button>
-                                <button className="options">Both</button>
-                            </div>
+                <div className="hero">
+                    <h1 className="prompt">What are you looking for?</h1>
+                    <div className="prompt-container">
+                        <div className="option-pannel">
+                            <button onClick={this.toggleBar} className="options">Bar</button>
+                            <button onClick={this.toggleBoth} className="options">Both</button>
+                            <button onClick={this.toggleRestaurant} className="options">Restaurant</button>
                         </div>
                     </div>
                 </div>
-                <RestaurantsList/>
-                <BarsList/>
+                {this.state.restaurant && <RestaurantsList/>}
+                {this.state.bar && <BarsList/>}
             </div>
         );
     }
