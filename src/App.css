@@ -2,6 +2,7 @@
   text-align: center;
   margin: 0;
   padding: 0;
+  font-family: Marmelad;
 }
 
 .App-logo {
@@ -13,7 +14,7 @@
   background-color: #222;
   height: 150px;
   padding: 20px;
-  color: white;
+  color: #2d2d2d;
 }
 
 .App-title {
@@ -32,46 +33,64 @@ h1 {
   margin-top: 160px;
   width: 100%;
   height: 400px;
-  background-color: grey;
+  background-color: #efefef;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.hide {
+  display: none;
 }
 
 .prompt-container {
-  margin: 130px;
+  margin: 0px;
 }
 
 .prompt {
-  color: white;
+  color: #2d2d2d;
   margin: 0px;
 }
 
 .option-pannel {
   display: inline-flex;
+  justify-content: space-between;
   margin: 0 auto;
   width: 600px;
-  justify-content: space-between;
   text-align: center;
 }
 
 .options {
   width: 100px;
   height: 40px;
+
   border: none;
   border-radius: 0px;
-  background-color: lightblue;
+  background-color: #2F9A4A;
+
   text-align: center;
+  font-family: Marmelad;
+  font-weight: bold;
+  color: #2d2d2d;
 }
 
 .optionBoth {
+  justify-content: space-between;
   display: block;
+  margin: 0 auto;
+  margin-top: 0px;
   width: 60px;
   height: 60px;
+
   border: none;
   border-radius: 30px;
-  background-color: lightblue;
+  background-color: #2F9A4A;
+
   text-align: center;
-  margin: 0 auto;
-  margin-top: 100px;
+  font-family: Marmelad;
+  font-weight: bold;
+  color: #2d2d2d;
 }
 
 @keyframes App-logo-spin {

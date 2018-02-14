@@ -16,6 +16,7 @@ class App extends Component {
             restaurant: false,
             bar: false,
             both: false,
+            add: false,
         }
 
         this.toggleBar = this.toggleBar.bind(this)
@@ -23,6 +24,8 @@ class App extends Component {
         this.toggleRestaurant = this.toggleRestaurant.bind(this)
 
         this.toggleBoth = this.toggleBoth.bind(this)
+
+        this.toggleAdd = this.toggleAdd.bind(this)
     }
 
     toggleBar = () => {
@@ -42,10 +45,18 @@ class App extends Component {
     }
 
     toggleBoth = () => {
-        console.log("toggleBoth was run");
+        console.log("toggleplaces was run");
         const both = this.both;
         this.setState({
             both: !both
+        })
+    }
+
+    toggleAdd = () => {
+        console.log("toggleplaces was run");
+        const add = this.add;
+        this.setState({
+            add: !add
         })
     }
 
@@ -61,12 +72,12 @@ class App extends Component {
                             <button onClick={this.toggleBar} className="options">Bar</button>
                             <button onClick={this.toggleRestaurant} className="options">Restaurant</button>
                         </div>
-                        <button onClick={this.toggleBoth} className="optionBoth">Both</button>
+                        <button onClick={this.toggleplaces} className="optionBoth">places</button>
                 </div>
                 {this.state.restaurant && <RestaurantsList/>}
                 {this.state.bar && <BarsList/>}
-                <AddLocations/>
-                <PlacesList/>
+                {this.state.both && <PlacesList/>}
+                {this.state.add && <AddLocations/>}
             </div>
         );
     }
