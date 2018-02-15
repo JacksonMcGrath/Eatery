@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react';
 import axios from 'axios';
-// eslint-disable-next-line
 // This is how all the HTTP commands are issued
+// eslint-disable-next-line
 import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios'
 // eslint-disable-next-line
 import logo from './logo.svg';
