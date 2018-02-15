@@ -1,5 +1,10 @@
 
 import React, { Component } from 'react';
+import axios from 'axios';
+// eslint-disable-next-line
+// This is how all the HTTP commands are issued
+import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios'
+// eslint-disable-next-line
 import logo from './logo.svg';
 import './App.css';
 
@@ -15,6 +20,8 @@ class App extends Component {
         super(props)
 
         this.state = {
+            restaurants: [],
+            bars: []
             restaurant: false,
             bar: false,
             both: false,
@@ -24,6 +31,29 @@ class App extends Component {
             restBar: false,
             noBar: false,
             restEither: false,
+        }
+    }
+
+    //making the API calls
+    componentDidMount() {
+        axios.all([
+            axios.get('http://172.20.0.136:9293/restaurants'),
+            axios.get('http://172.20.0.136:9293/bars'),
+            // axios.get('http://172.20.0.136:9292/places')
+          ])
+        
+          //setting the state
+            .then((res) => {
+                const state = res
+                // console.log(state.data);
+                this.setState({restaurants: state[0].data});
+                this.setState({bars: state[1].data});
+                // console.log(this.state)     
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+            
         }
 
         this.toggleBar = this.toggleBar.bind(this)
@@ -139,6 +169,9 @@ class App extends Component {
                     </div>
                     <button onClick={this.toggleBoth} className="option-both">both</button>
                 </div>
+          
+                <AddLocations />
+
                 {this.state.restaurant && <RestaurantsList toggleRestBar={this.toggleRestBar} toggleNoBar={this.toggleNoBar}/>}
                 {this.state.bar && <BarsList toggleFood={this.toggleFood} toggleNoFood={this.toggleNoFood}/>}
                 {this.state.both && <NeighborhoodQuestion/>}

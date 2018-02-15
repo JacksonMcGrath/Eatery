@@ -13,6 +13,10 @@ class Restaurants extends Component {
 
     render() {
 
+        // console.log("restaurants are ready")
+        const allRestaurants = this.props.restaurants.map((restaurants, i) => {
+            return <li key={i} >{restaurants.name} - {restaurants.location}: {restaurants.description} </li>})
+
         return (
             <div className="component-container">
                 <div className="hero" id="restaurant">
