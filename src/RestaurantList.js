@@ -12,7 +12,7 @@ class Restaurants extends Component {
                         <button onClick={this.toggleBar} className="options">Yes</button>
                         <button onClick={this.toggleRestaurant} className="options">No</button>
                     </div>
-                    <button onClick={this.toggleplaces} className="optionBoth">either</button>
+                    <button onClick={this.toggleplaces} className="option-both">either</button>
             </div>
         );
     }

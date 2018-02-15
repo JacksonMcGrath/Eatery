@@ -68,6 +68,10 @@ class App extends Component {
     render() {
         return (
             <div className="App">
+                <header>
+                    <img className="logo" src="https://i.imgur.com/uCkqACX.png"></img>
+                    <h2 className="logo-text">EATERY</h2>
+                </header>
                 <div className="hero">
                     <div className="prompt-container">
                         <h1 className="prompt">What are you looking for?</h1>
@@ -76,7 +80,7 @@ class App extends Component {
                             <button onClick={this.toggleBar} className="options">Bar</button>
                             <button onClick={this.toggleRestaurant} className="options">Restaurant</button>
                         </div>
-                        <button onClick={this.toggleplaces} className="optionBoth">both</button>
+                        <button onClick={this.toggleBoth} className="option-both">both</button>
                 </div>
                 {this.state.restaurant && <RestaurantsList/>}
                 {this.state.bar && <BarsList/>}
