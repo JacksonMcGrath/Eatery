@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 
 class Restaurants extends Component {
+
+	constructor(){
+		super()
+	
+		this.state = {
+	
+		}
+	}
+
     render() {
 
         return (

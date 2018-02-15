@@ -76,11 +76,11 @@ class App extends Component {
                     <div className="prompt-container">
                         <h1 className="prompt">What are you looking for?</h1>
                     </div>
-                        <div className="option-pannel">
-                            <button onClick={this.toggleBar} className="options">Bar</button>
-                            <button onClick={this.toggleRestaurant} className="options">Restaurant</button>
-                        </div>
-                        <button onClick={this.toggleBoth} className="option-both">both</button>
+                    <div className="option-pannel">
+                        <button onClick={this.toggleBar} className="options">Bar</button>
+                        <button onClick={this.toggleRestaurant} className="options">Restaurant</button>
+                    </div>
+                    <button onClick={this.toggleBoth} className="option-both">both</button>
                 </div>
                 {this.state.restaurant && <RestaurantsList/>}
                 {this.state.bar && <BarsList/>}

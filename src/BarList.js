@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 class Bars extends Component {
 
-    // handleEdit(e) => {
-    //     console.log(e.currentTarget.value, "Ready to edited.");
-    // };
-
-    // handleSubmit(e) => {
-    //     console.log(e.currentTarget.value, "this will submit");
-    // };
-
-    // handleDelete(e) = {
-    //     console.log(e.currentTarget.value, "This will be deleted");
-    // };
+    constructor(){
+        super()
+    
+        this.state = {
+            food: false,
+            noFood: false,
+            either: false,
+        }
+    }
 
     render() {
 
@@ -20,11 +18,11 @@ class Bars extends Component {
                 <div className="prompt-container">
                     <h1 className="prompt">Do you want a Bar that serves food?</h1>
                 </div>
-                    <div className="option-pannel">
-                        <button onClick={this.toggleBar} className="options">Yes</button>
-                        <button onClick={this.toggleRestaurant} className="options">No</button>
-                    </div>
-                    <button onClick={this.toggleplaces} className="option-both">either</button>
+                <div className="option-pannel">
+                    <button onClick={this.toggleFood} className="options">Yes</button>
+                    <button onClick={this.toggleNoFood} className="options">No</button>
+                </div>
+                <button onClick={this.toggleEither} className="option-both">either</button>
             </div>
         );
     }
