@@ -15,13 +15,15 @@ class Bars extends Component {
         // console.log("Bars list is ready");
 
     const allBars = this.props.bars.map((bars, i) => {
+        if (this.props.bars[i].restaurant == false) {
+            // console.log(bars.name);
         return <li key={i} >{bars.name} - {bars.location}: {bars.description} </li>
-  })
+     }
+})
 
-       
-        
-        // console.log(barsList())
-        return (
+    //    console.log(allBars)
+  
+    return (
             <div className="component-container">
                 <div className="hero" id="bar">
                     <div className="prompt-container">

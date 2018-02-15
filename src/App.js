@@ -20,8 +20,7 @@ class App extends Component {
         super(props)
 
         this.state = {
-            restaurants: [],
-            bars: [],
+            eateries: [],
             restaurant: false,
             bar: false,
             both: false,
@@ -44,18 +43,17 @@ class App extends Component {
     //making the API calls
     componentDidMount() {
         axios.all([
-            axios.get('http://172.20.0.136:9293/restaurants'),
-            axios.get('http://172.20.0.136:9293/bars'),
-            // axios.get('http://172.20.0.136:9292/places')
+            // axios.get('http://172.20.0.136:9293/restaurants'),
+            // axios.get('http://172.20.0.136:9293/bars'),
+            axios.get('http://172.20.0.136:9293/places')
           ])
         
           //setting the state
             .then((res) => {
                 const state = res
-                // console.log(state.data);
-                this.setState({restaurants: state[0].data});
-                this.setState({bars: state[1].data});
-                // console.log(this.state)     
+                // console.log(state[0].data);
+                this.setState({eateries: state[0].data});
+                console.log(this.state)     
             })
             .catch((err) => {
                 console.log(err)
@@ -184,13 +182,13 @@ class App extends Component {
                 </div>
 
                 {this.state.restaurant && <RestaurantsList 
-                    restaurants={this.state.restaurants}
+                    restaurants={this.state.eateries}
                     toggleRestBar={this.toggleRestBar} 
                     toggleNoBar={this.toggleNoBar}
                     toggleRestEither={this.toggleRestEither}
                 />}
                 {this.state.bar && <BarsList 
-                    bars={this.state.bars}
+                    bars={this.state.eateries}
                     toggleFood={this.toggleFood} 
                     toggleNoFood={this.toggleNoFood}
                     toggleBarEither={this.toggleBarEither}
