@@ -15,12 +15,22 @@ class Bars extends Component {
 
     render() {
         // console.log("Bars list is ready");
+
+    const allBars = this.props.bars.map((bars, i) => {
+        return <li key={i} >{bars.name} - {bars.location}: {bars.description} </li>
+  })
+
+       
         
+        // console.log(barsList())
 
 
         return (
             <div>
-                <h2>Bars list is rendering.</h2>
+            <h1>This is the bars list</h1>
+            <ul>
+                {allBars}
+                </ul>
             </div>
         );
     }

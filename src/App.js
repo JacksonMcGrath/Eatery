@@ -21,30 +21,30 @@ class App extends Component {
             restaurants: [],
             bars: []
         }
-    
     }
 
-    // making the API calls
+    //making the API calls
     componentDidMount() {
         axios.all([
-            axios.get('http://172.20.0.123:9292/restaurants'),
-            axios.get('http://172.20.0.123:9292/bars')
+            axios.get('http://172.20.0.136:9293/restaurants'),
+            axios.get('http://172.20.0.136:9293/bars'),
+            // axios.get('http://172.20.0.136:9292/places')
           ])
         
           //setting the state
             .then((res) => {
                 const state = res
-                // console.log(state[1].data);
+                // console.log(state.data);
                 this.setState({restaurants: state[0].data});
                 this.setState({bars: state[1].data});
-                console.log(this.state)     
+                // console.log(this.state)     
             })
             .catch((err) => {
                 console.log(err)
             })
             
     }
-    
+
 
     render() {
         return (
@@ -62,9 +62,9 @@ class App extends Component {
                     </div>
                 </div>
                 <AddLocations />
-                <RestaurantsList/>
+                <RestaurantsList restaurants={this.state.restaurants}/>
                 
-                <BarsList/>
+                <BarsList bars={this.state.bars}/>
                 {/* This form will allow you to add places */}
                 <PlacesList/>
             </div>
