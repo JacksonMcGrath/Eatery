@@ -1,17 +1,15 @@
+
 import React, { Component } from 'react';
+
 class Bars extends Component {
 
-    // handleEdit(e) => {
-    //     console.log(e.currentTarget.value, "Ready to edited.");
-    // };
+    constructor(props){
+        super(props)
+    
+        this.state = {
 
-    // handleSubmit(e) => {
-    //     console.log(e.currentTarget.value, "this will submit");
-    // };
-
-    // handleDelete(e) =. {
-    //     console.log(e.currentTarget.value, "This will be deleted");
-    // };
+        }
+    }
 
     render() {
         // console.log("Bars list is ready");
@@ -23,14 +21,18 @@ class Bars extends Component {
        
         
         // console.log(barsList())
-
-
         return (
-            <div>
-            <h1>This is the bars list</h1>
-            <ul>
-                {allBars}
-                </ul>
+            <div className="component-container">
+                <div className="hero" id="bar">
+                    <div className="prompt-container">
+                        <h1 className="prompt">Do you want a Bar that serves food?</h1>
+                    </div>
+                    <div className="option-pannel">
+                        <button onClick={this.props.toggleFood} className="options">Yes</button>
+                        <button onClick={this.props.toggleNoFood} className="options">No</button>
+                    </div>
+                    <button onClick={this.toggleEither} className="option-both">either</button>
+                </div>
             </div>
         );
     }
