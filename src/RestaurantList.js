@@ -1,27 +1,34 @@
+import RestaurantWithBar from './RestaurantWithBar'
+import RestaurantNoBar from './RestaurantNoBar'
+
 import React, { Component } from 'react';
 
 class Restaurants extends Component {
 
-	constructor(){
-		super()
+	constructor(props){
+		super(props)
 	
-		this.state = {
-	
-		}
-	}
+        this.state = {
+
+        }
+    }
 
     render() {
 
         return (
-            <div className="hero">
-                <div className="prompt-container">
-                    <h1 className="prompt">Do you wan't a Restaurant that also has a bar?</h1>
-                </div>
-                    <div className="option-pannel">
-                        <button onClick={this.toggleBar} className="options">Yes</button>
-                        <button onClick={this.toggleRestaurant} className="options">No</button>
+            <div className="component-container">
+                <div className="hero" id="restaurant">
+                    <div className="prompt-container">
+                        <h1 className="prompt">Do you want a restaurant that also has a bar</h1>
                     </div>
-                    <button onClick={this.toggleplaces} className="option-both">either</button>
+                    <div className="option-pannel">
+                        <button onClick={this.props.toggleRestBar} className="options">Yes</button>
+                        <button onClick={this.props.toggleNoBar} className="options">No</button>
+                    </div>
+                    <button onClick={this.toggleEither} className="option-both">either</button>
+                </div>
+                {this.state.bar && <RestaurantWithBar/>}
+                {this.state.noBar && <RestaurantNoBar/>}
             </div>
         );
     }
