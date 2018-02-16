@@ -32,6 +32,13 @@ class App extends Component {
             noBar: false,
             restEither: false,
         }
+
+        this.toggleBar = this.toggleBar.bind(this)
+        this.toggleRestaurant = this.toggleRestaurant.bind(this)
+        this.toggleBoth = this.toggleBoth.bind(this)
+        this.toggleAdd = this.toggleAdd.bind(this)
+        this.toggleFood = this.toggleFood.bind(this)
+        this.toggleNoFood = this.toggleNoFood.bind(this)
     }
 
     //making the API calls
@@ -53,15 +60,6 @@ class App extends Component {
             .catch((err) => {
                 console.log(err)
             })
-            
-        }
-
-        this.toggleBar = this.toggleBar.bind(this)
-        this.toggleRestaurant = this.toggleRestaurant.bind(this)
-        this.toggleBoth = this.toggleBoth.bind(this)
-        this.toggleAdd = this.toggleAdd.bind(this)
-        this.toggleFood = this.toggleFood.bind(this)
-        this.toggleNoFood = this.toggleNoFood.bind(this)
     }
 
     // PARENT FUNCTIONS
@@ -186,11 +184,13 @@ class App extends Component {
                 </div>
 
                 {this.state.restaurant && <RestaurantsList 
+                    restaurants={this.state.restaurants}
                     toggleRestBar={this.toggleRestBar} 
                     toggleNoBar={this.toggleNoBar}
                     toggleRestEither={this.toggleRestEither}
                 />}
                 {this.state.bar && <BarsList 
+                    bars={this.state.bars}
                     toggleFood={this.toggleFood} 
                     toggleNoFood={this.toggleNoFood}
                     toggleBarEither={this.toggleBarEither}
@@ -203,7 +203,7 @@ class App extends Component {
                 {this.state.add && <NeighborhoodQuestion/>}
                 {this.state.food && <NeighborhoodQuestion/>}
                 {this.state.noFood && <NeighborhoodQuestion/>}
-                
+
                 <button className="show" onClick={this.showResults}>Show Results</button>
             </div>
         );
