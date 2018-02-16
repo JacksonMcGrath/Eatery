@@ -2,15 +2,12 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+
 import RestaurantsList from './RestaurantList'
 import BarsList from './BarList'
 import PlacesList from  './PlaceList'
 import AddLocations from './AddForm'
-import RestaurantWithBar from './RestaurantWithBar'
-import RestaurantNoBar from './RestaurantNoBar'
-import BarFood from './BarFood'
-import BarNoFood from './BarNoFood'
-
+import NeighborhoodQuestion from './NeighborhoodQuestion'
 
 class App extends Component {
 
@@ -90,6 +87,14 @@ class App extends Component {
         })
     }
 
+    toggleBarEither = () => {
+        document.querySelector("#bar").style.display = "none";
+        const barEither = this.barEither;
+        this.setState({
+            barEither: !barEither
+        })
+    }
+
     // RESTAURANT FUNCTIONS
 
     toggleRestBar = () => {
@@ -109,7 +114,7 @@ class App extends Component {
     }
 
     toggleRestEither = () => {
-        document.querySelector("#bar").style.display = "none";
+        document.querySelector("#restaurant").style.display = "none";
         const restEither = this.restEither;
         this.setState({
             restEither: !restEither
@@ -136,12 +141,14 @@ class App extends Component {
                 </div>
                 {this.state.restaurant && <RestaurantsList toggleRestBar={this.toggleRestBar} toggleNoBar={this.toggleNoBar}/>}
                 {this.state.bar && <BarsList toggleFood={this.toggleFood} toggleNoFood={this.toggleNoFood}/>}
-                {this.state.both && <PlacesList/>}
-                {this.state.restBar && <RestaurantWithBar/>}
-                {this.state.noBar && <RestaurantNoBar/>}
-                {this.state.add && <AddLocations/>}
-                {this.state.food && <BarFood/>}
-                {this.state.noFood && <BarNoFood/>}
+                {this.state.both && <NeighborhoodQuestion/>}
+                {this.state.restEither && <NeighborhoodQuestion/>}
+                {this.state.barEither && <NeighborhoodQuestion/>}
+                {this.state.restBar && <NeighborhoodQuestion/>}
+                {this.state.noBar && <NeighborhoodQuestion/>}
+                {this.state.add && <NeighborhoodQuestion/>}
+                {this.state.food && <NeighborhoodQuestion/>}
+                {this.state.noFood && <NeighborhoodQuestion/>}
             </div>
         );
     }

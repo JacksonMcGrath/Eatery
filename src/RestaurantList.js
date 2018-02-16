@@ -1,5 +1,3 @@
-import RestaurantWithBar from './RestaurantWithBar'
-import RestaurantNoBar from './RestaurantNoBar'
 
 import React, { Component } from 'react';
 
@@ -27,8 +25,6 @@ class Restaurants extends Component {
                     </div>
                     <button onClick={this.toggleEither} className="option-both">either</button>
                 </div>
-                {this.state.bar && <RestaurantWithBar/>}
-                {this.state.noBar && <RestaurantNoBar/>}
             </div>
         );
     }

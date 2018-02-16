@@ -1,9 +1,10 @@
+
 import React, { Component } from 'react';
 
-class RestaurantNoBars extends Component {
+class NeighborhoodQuestions extends Component {
 
-	constructor(){
-		super()
+	constructor(props){
+		super(props)
 	
 		this.state = {
 	
@@ -26,4 +27,4 @@ class RestaurantNoBars extends Component {
     }
 }
 
-export default RestaurantNoBars
+export default NeighborhoodQuestions
