@@ -52,7 +52,7 @@ class App extends Component {
           //setting the state
             .then((res) => {
                 const state = res
-                // console.log(state.data);
+                console.log(state.data);
                 this.setState({restaurants: state[0].data});
                 this.setState({bars: state[1].data});
                 // console.log(this.state)     
