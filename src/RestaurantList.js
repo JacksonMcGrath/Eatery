@@ -16,7 +16,7 @@ class Restaurants extends Component {
         // console.log("restaurants are ready")
         const allRestaurants = this.props.restaurants.map((restaurants, i) => { 
             if (this.props.restaurants[i].restaurant == true) 
-            console.log(restaurants.name)
+            // console.log(restaurants.name)
             return <li key={i} >{restaurants.name} - {restaurants.location}: {restaurants.description} </li>})
 
         return (
