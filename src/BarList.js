@@ -23,7 +23,7 @@ class Bars extends Component {
                         <button onClick={this.props.toggleFood} className="options">Yes</button>
                         <button onClick={this.props.toggleNoFood} className="options">No</button>
                     </div>
-                    <button onClick={this.toggleEither} className="option-both">either</button>
+                    <button onClick={this.props.toggleBarEither} className="option-both">either</button>
                 </div>
             </div>
         );

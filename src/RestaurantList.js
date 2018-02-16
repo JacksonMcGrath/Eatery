@@ -23,7 +23,7 @@ class Restaurants extends Component {
                         <button onClick={this.props.toggleRestBar} className="options">Yes</button>
                         <button onClick={this.props.toggleNoBar} className="options">No</button>
                     </div>
-                    <button onClick={this.toggleEither} className="option-both">either</button>
+                    <button onClick={this.props.toggleRestEither} className="option-both">either</button>
                 </div>
             </div>
         );

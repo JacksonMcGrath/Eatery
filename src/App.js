@@ -15,6 +15,8 @@ class App extends Component {
         super(props)
 
         this.state = {
+            restaurants: ["hot dog joint"],
+            bars: ["beer place"],
             restaurant: false,
             bar: false,
             both: false,
@@ -88,6 +90,7 @@ class App extends Component {
     }
 
     toggleBarEither = () => {
+        console.log("BarEither");
         document.querySelector("#bar").style.display = "none";
         const barEither = this.barEither;
         this.setState({
@@ -114,11 +117,25 @@ class App extends Component {
     }
 
     toggleRestEither = () => {
+        console.log("RestEither");
         document.querySelector("#restaurant").style.display = "none";
         const restEither = this.restEither;
         this.setState({
             restEither: !restEither
         })
+    }
+
+    // RESULTS
+
+    showResults = () => {
+        console.log(this.state);
+        if (this.state.bar == true) {
+            console.log(this.state.bars);
+        } else if (this.state.restaurant == true){
+            console.log(this.state.restaurants);
+        } else if (this.state.both == true) {
+            console.log(this.state.restaurants + " | " + this.state.bars);
+        }
     }
 
 
@@ -139,8 +156,16 @@ class App extends Component {
                     </div>
                     <button onClick={this.toggleBoth} className="option-both">both</button>
                 </div>
-                {this.state.restaurant && <RestaurantsList toggleRestBar={this.toggleRestBar} toggleNoBar={this.toggleNoBar}/>}
-                {this.state.bar && <BarsList toggleFood={this.toggleFood} toggleNoFood={this.toggleNoFood}/>}
+                {this.state.restaurant && <RestaurantsList 
+                    toggleRestBar={this.toggleRestBar} 
+                    toggleNoBar={this.toggleNoBar}
+                    toggleRestEither={this.toggleRestEither}
+                />}
+                {this.state.bar && <BarsList 
+                    toggleFood={this.toggleFood} 
+                    toggleNoFood={this.toggleNoFood}
+                    toggleBarEither={this.toggleBarEither}
+                />}
                 {this.state.both && <NeighborhoodQuestion/>}
                 {this.state.restEither && <NeighborhoodQuestion/>}
                 {this.state.barEither && <NeighborhoodQuestion/>}
@@ -149,6 +174,7 @@ class App extends Component {
                 {this.state.add && <NeighborhoodQuestion/>}
                 {this.state.food && <NeighborhoodQuestion/>}
                 {this.state.noFood && <NeighborhoodQuestion/>}
+                <button className="show" onClick={this.showResults}>Show Results</button>
             </div>
         );
     }
