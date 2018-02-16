@@ -12,7 +12,15 @@ class Bars extends Component {
     }
 
     render() {
+        // console.log("Bars list is ready");
 
+    const allBars = this.props.bars.map((bars, i) => {
+        return <li key={i} >{bars.name} - {bars.location}: {bars.description} </li>
+  })
+
+       
+        
+        // console.log(barsList())
         return (
             <div className="component-container">
                 <div className="hero" id="bar">
