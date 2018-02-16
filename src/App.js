@@ -53,7 +53,7 @@ class App extends Component {
         axios.all([
             // axios.get('http://172.20.0.136:9293/restaurants'),
             // axios.get('http://172.20.0.136:9293/bars'),
-            axios.get('http://172.20.0.136:9293/places')
+            axios.get('http://172.20.0.112:9293/places')
           ])
         
           //setting the state
@@ -163,11 +163,11 @@ class App extends Component {
     showResults = (e) => {
         console.log(this.state);
         if (this.state.bar == true) {
-            console.log(this.state.bars);
+            console.log(this.state.eateries);
         } else if (this.state.restaurant == true){
-            console.log(this.state.restaurants);
+            console.log(this.state.eateries);
         } else if (this.state.both == true) {
-            console.log(this.state.restaurants + " | " + this.state.bars);
+            console.log(this.state.eateries);
         }
         this.grab(e)
     }
@@ -192,7 +192,6 @@ class App extends Component {
 
     updateNeighborhood = (e) => {
         console.log("updateNeighborhood");
-        console.log(this.currentTarget);
         document.querySelector("#neighborhood-list").style.display = "none";
         const neighborhood = this.neighborhood;
         this.grab(e)
