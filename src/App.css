@@ -165,6 +165,24 @@ h1 {
   color: white;
 }
 
+.neighborhood-container {
+  display: inline-flex;
+  justify-content: space-around;
+}
+
+.output-container {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.output {
+  height: 300px;
+  width: 200px;
+  margin: 20px;
+  background-color: #e6e6e6;
+}
+
 .add {
   height: 40px;
   width: 160px;

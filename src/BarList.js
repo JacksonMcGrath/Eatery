@@ -17,7 +17,12 @@ class Bars extends Component {
     const allBars = this.props.bars.map((bars, i) => {
         if (this.props.bars[i].restaurant == false) {
             // console.log(bars.name);
-        return <li key={i} >{bars.name} - {bars.location}: {bars.description} </li>
+        return 
+            <div key={i} className="output">
+                <h2>{bars.name}</h2>
+                <h4>{bars.location}</h4>
+                <p>{bars.description}</p>
+            </div>
      }
 })
 

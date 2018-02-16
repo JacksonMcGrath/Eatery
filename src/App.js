@@ -13,6 +13,7 @@ import BarsList from './BarList'
 import PlacesList from  './PlaceList'
 import AddLocations from './AddForm'
 import NeighborhoodQuestion from './NeighborhoodQuestion'
+import NeighborhoodList from './NeighborhoodList'
 
 class App extends Component {
 
@@ -31,6 +32,8 @@ class App extends Component {
             restBar: false,
             noBar: false,
             restEither: false,
+            neighborhoodCare: false,
+            neighborhood: 0,
         }
 
         this.toggleBar = this.toggleBar.bind(this)
@@ -39,6 +42,10 @@ class App extends Component {
         this.toggleAdd = this.toggleAdd.bind(this)
         this.toggleFood = this.toggleFood.bind(this)
         this.toggleNoFood = this.toggleNoFood.bind(this)
+        this.toggleNeighborhoodCare = this.toggleNeighborhoodCare.bind(this)
+        this.showResults = this.showResults.bind(this)
+        this.updateNeighborhood = this.updateNeighborhood.bind(this)
+        this.grab = this.grab.bind(this)
     }
 
     //making the API calls
@@ -153,7 +160,7 @@ class App extends Component {
 
     // RESULTS
 
-    showResults = () => {
+    showResults = (e) => {
         console.log(this.state);
         if (this.state.bar == true) {
             console.log(this.state.bars);
@@ -162,6 +169,33 @@ class App extends Component {
         } else if (this.state.both == true) {
             console.log(this.state.restaurants + " | " + this.state.bars);
         }
+        this.grab(e)
+    }
+
+    grab(e) {
+        console.log(e.currentTarget.id);
+        this.setState({
+            neighborhood: e.currentTarget.id
+        })
+    }
+
+    // NEIGHBORHOOD
+
+    toggleNeighborhoodCare = () => {
+        console.log("neighborhoodCare");
+        document.querySelector("#neighborhood").style.display = "none";
+        const neighborhoodCare = this.neighborhoodCare;
+        this.setState({
+            neighborhoodCare: !neighborhoodCare
+        })
+    }
+
+    updateNeighborhood = (e) => {
+        console.log("updateNeighborhood");
+        console.log(this.currentTarget);
+        document.querySelector("#neighborhood-list").style.display = "none";
+        const neighborhood = this.neighborhood;
+        this.grab(e)
     }
 
 
@@ -199,16 +233,42 @@ class App extends Component {
                     toggleNoFood={this.toggleNoFood}
                     toggleBarEither={this.toggleBarEither}
                 />}
-                {this.state.both && <NeighborhoodQuestion/>}
-                {this.state.restEither && <NeighborhoodQuestion/>}
-                {this.state.barEither && <NeighborhoodQuestion/>}
-                {this.state.restBar && <NeighborhoodQuestion/>}
-                {this.state.noBar && <NeighborhoodQuestion/>}
-                {this.state.add && <NeighborhoodQuestion/>}
-                {this.state.food && <NeighborhoodQuestion/>}
-                {this.state.noFood && <NeighborhoodQuestion/>}
-
-                
+                {this.state.both && <NeighborhoodQuestion
+                    toggleNeighborhoodCare={this.toggleNeighborhoodCare}
+                    showResults={this.showResults}
+                />}
+                {this.state.restEither && <NeighborhoodQuestion
+                    toggleNeighborhoodCare={this.toggleNeighborhoodCare}
+                    showResults={this.showResults}
+                />}
+                {this.state.barEither && <NeighborhoodQuestion
+                    toggleNeighborhoodCare={this.toggleNeighborhoodCare}
+                    showResults={this.showResults}
+                />}
+                {this.state.restBar && <NeighborhoodQuestion
+                    toggleNeighborhoodCare={this.toggleNeighborhoodCare}
+                    showResults={this.showResults}
+                />}
+                {this.state.noBar && <NeighborhoodQuestion
+                    toggleNeighborhoodCare={this.toggleNeighborhoodCare}
+                    showResults={this.showResults}
+                />}
+                {this.state.add && <NeighborhoodQuestion
+                    toggleNeighborhoodCare={this.toggleNeighborhoodCare}
+                    showResults={this.showResults}
+                />}
+                {this.state.food && <NeighborhoodQuestion
+                    toggleNeighborhoodCare={this.toggleNeighborhoodCare}
+                    showResults={this.showResults}
+                />}
+                {this.state.noFood && <NeighborhoodQuestion
+                    toggleNeighborhoodCare={this.toggleNeighborhoodCare}
+                    showResults={this.showResults}
+                />}
+                {this.state.neighborhoodCare && <NeighborhoodList
+                    updateNeighborhood={this.updateNeighborhood}
+                    showResults={this.showResults}
+                />}
             </div>
         );
     }
