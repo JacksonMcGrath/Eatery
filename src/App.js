@@ -20,6 +20,7 @@ class App extends Component {
         super(props)
 
         this.state = {
+            add: false,
             eateries: [],
             restaurant: false,
             bar: false,
@@ -168,8 +169,12 @@ class App extends Component {
         return (
             <div className="App">
                 <header>
-                    <img className="logo" src="https://i.imgur.com/uCkqACX.png"></img>
-                    <h2 className="logo-text">EATERY</h2>
+                    <button className="add" onClick={this.toggleAdd}>Add an Eatery</button>
+                    <div className="logo-container"> 
+                        <img className="logo" src="https://i.imgur.com/uCkqACX.png"></img>
+                        <h2 className="logo-text">EATERY</h2>
+                    </div>
+                    <button className="show" onClick={this.showResults}>Show Results</button>
                 </header>
                 <div className="hero">
                     <div className="prompt-container">
@@ -203,7 +208,7 @@ class App extends Component {
                 {this.state.food && <NeighborhoodQuestion/>}
                 {this.state.noFood && <NeighborhoodQuestion/>}
 
-                <button className="show" onClick={this.showResults}>Show Results</button>
+                
             </div>
         );
     }
